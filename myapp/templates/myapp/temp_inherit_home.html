@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+   <h1>This is a home page</h1>
+
+   name:{{name}} <br>
+   age:{{age}} <br>
+   address:{{address}}
+
+   <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Store Location</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% if debug %}
+      <h2>This is development mode</h2> 
+      {% else %}
+      <h2>This is a production mode</h2>
+      {% endif %}
+
+      {% for item in items %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.store_location}}</td>
+          <td>{{item.Price}}</td>
+        </tr>
+        {% endfor %}
+       
+      </tbody>
+    </table>
+
+
+
+{% endblock %}
